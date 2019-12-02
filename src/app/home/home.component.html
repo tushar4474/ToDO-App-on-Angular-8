@@ -1,0 +1,25 @@
+<div class="container bg-dark text-light">
+    <div class="col">
+        <p>Add ToDo Task</p>
+    </div>
+
+    <div class="col">
+        <p>ToDo List{{itemcounter}}</p>
+    </div>
+</div>
+
+<div class="container bg-light box" [@projects]="project.length">
+    <div class="col">
+        <h5>Use this tool to add your to-do list also to remove</h5>
+
+        <form>
+           <input type="text" class="text" name="projectname" [(ngModel)]="projecttext" placeholder="please add task here..">
+           {{ngModel}}
+           <br>
+           <input type="submit" class="btn btn-outline-secondary" value="Add Task" (click)=additem()>
+        </form>
+     </div>
+     <div class="col">
+         <p class="project-container" *ngFor="let item of projects;let i=index" (click)="removeitem(i)">{{item}}</p>
+     </div>
+</div>
